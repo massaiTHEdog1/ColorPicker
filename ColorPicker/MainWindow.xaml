@@ -20,6 +20,6 @@
 
 		<ItemsControl Grid.Row="1" ItemsSource="{Binding ListColors, UpdateSourceTrigger=PropertyChanged}" Padding="10,0,0,0"/>
 
-		<CheckBox Grid.Row="2" IsChecked="{Binding IsBlockMode, UpdateSourceTrigger=PropertyChanged}" Content="Mode blocage" Foreground="White" Margin="10,0,0,0"/>
+		<CheckBox Grid.Row="2" IsChecked="{Binding IsBlockMode, UpdateSourceTrigger=PropertyChanged}" Content="Block Mode" Foreground="White" Margin="10,0,0,0"/>
     </Grid>
 </Window>
