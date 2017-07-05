@@ -4,50 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Color Picker" Height="200" Width="304.5" ResizeMode="NoResize" Background="#FF0B1016" MouseLeftButtonDown="MainWindow1_MouseLeftButtonDown" WindowStyle="None" IsHitTestVisible="True" Icon="color_picker_x64.ico">
-    <Grid>
-        <Grid Height="30" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="230">
-            <Rectangle Fill="White" HorizontalAlignment="Left" Height="30" Stroke="Black" VerticalAlignment="Center" Width="30" MouseLeftButtonUp="StartPickupColor" Cursor="Hand"/>
-            <TextBlock Margin="40,0,0,0" TextWrapping="Wrap" Text="#FFFFFF" Foreground="#FFFF9600" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyHexadecimal"/>
-            <TextBlock Margin="120,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-            <TextBlock Margin="160,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Lime" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-            <TextBlock Margin="200,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Blue" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-        </Grid>
+		DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="Color Picker" Height="200" Width="300" ResizeMode="NoResize" Background="#FF0B1016" MouseLeftButtonDown="MainWindow1_MouseLeftButtonDown" WindowStyle="None" Icon="Resources/color_picker_x64.ico">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="20"/>
+		</Grid.RowDefinitions>
+		
+		<StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right">
+			<Button Content="_" Style="{DynamicResource ButtonTitleBar}" Padding="0,0,0,10" Command="{Binding MinimizeApplicationCommand}"/>
+			<Button Content="x" Style="{DynamicResource ButtonTitleBar}" Padding="0,0,0,2" Command="{Binding CloseApplicationCommand}"/>
+		</StackPanel>
 
-        <Grid Height="30" Margin="10,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="230">
-            <Rectangle Fill="White" HorizontalAlignment="Left" Height="30" Stroke="Black" VerticalAlignment="Center" Width="30" MouseLeftButtonUp="StartPickupColor" Cursor="Hand"/>
-            <TextBlock Margin="40,0,0,0" TextWrapping="Wrap" Text="#FFFFFF" Foreground="#FFFF9600" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyHexadecimal"/>
-            <TextBlock Margin="120,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-            <TextBlock Margin="160,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Lime" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-            <TextBlock Margin="200,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Blue" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-        </Grid>
+		<ItemsControl Grid.Row="1" ItemsSource="{Binding ListColors, UpdateSourceTrigger=PropertyChanged}" Padding="10,0,0,0"/>
 
-        <Grid Height="30" Margin="10,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="230">
-            <Rectangle Fill="White" HorizontalAlignment="Left" Height="30" Stroke="Black" VerticalAlignment="Center" Width="30" MouseLeftButtonUp="StartPickupColor" Cursor="Hand"/>
-            <TextBlock Margin="40,0,0,0" TextWrapping="Wrap" Text="#FFFFFF" Foreground="#FFFF9600" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyHexadecimal"/>
-            <TextBlock Margin="120,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-            <TextBlock Margin="160,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Lime" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-            <TextBlock Margin="200,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Blue" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-        </Grid>
-
-        <Grid Height="30" Margin="10,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="230">
-            <Rectangle Fill="White" HorizontalAlignment="Left" Height="30" Stroke="Black" VerticalAlignment="Center" Width="30" MouseLeftButtonUp="StartPickupColor" Cursor="Hand"/>
-            <TextBlock Margin="40,0,0,0" TextWrapping="Wrap" Text="#FFFFFF" Foreground="#FFFF9600" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyHexadecimal"/>
-            <TextBlock Margin="120,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-            <TextBlock Margin="160,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Lime" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-            <TextBlock Margin="200,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Blue" HorizontalAlignment="Left" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="CopyText"/>
-        </Grid>
-
-
-
-        <Grid Width="30" Height="30" Background="#01FFFFFF" HorizontalAlignment="Right" VerticalAlignment="Top" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" MouseDown="Button_MouseDown" MouseUp="MinimizeButton_MouseUp" Margin="0,0,30,0">
-            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,10" TextWrapping="Wrap" Text="_" VerticalAlignment="Center" Foreground="White" FontFamily="Lucida Sans" FontSize="16" Padding="0"/>
-        </Grid>
-
-        <Grid Width="30" Height="30" Background="#01FFFFFF" HorizontalAlignment="Right" VerticalAlignment="Top" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" MouseDown="Button_MouseDown" MouseUp="QuitButton_MouseUp">
-            <TextBlock HorizontalAlignment="Center" Margin="0,0,0,2" TextWrapping="Wrap" Text="x" VerticalAlignment="Center" Foreground="White" FontFamily="Lucida Sans" FontSize="16"/>
-        </Grid>
-
-        <CheckBox x:Name="BlockMode" Content="Mode blocage" HorizontalAlignment="Left" Margin="10,175,0,0" VerticalAlignment="Top" Width="102" Foreground="White"/>
+		<CheckBox Grid.Row="2" IsChecked="{Binding IsBlockMode, UpdateSourceTrigger=PropertyChanged}" Content="Mode blocage" Foreground="White" Margin="10,0,0,0"/>
     </Grid>
 </Window>

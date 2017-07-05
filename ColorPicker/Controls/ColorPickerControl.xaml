@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="ColorPicker.ColorPickerControl" Margin="0,0,0,5"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ColorPicker"
+             mc:Ignorable="d" 
+			 DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+	<StackPanel Orientation="Horizontal">
+		<Rectangle Name="RectangleToFill" Fill="#FFFFFF" Height="30" Stroke="Black" Width="30" Cursor="Hand">
+			<Rectangle.InputBindings>
+				<MouseBinding MouseAction="LeftClick" Command="{Binding StartPickingColorCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=local:MainWindow}}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
+			</Rectangle.InputBindings>
+		</Rectangle>
+		
+		<TextBlock Name="TextBlockHexadecimal" Margin="10,0,0,0" TextWrapping="Wrap" Text="#FFFFFF" Foreground="#FFFF9600" VerticalAlignment="Center" Cursor="Hand">
+			<TextBlock.InputBindings>
+				<MouseBinding MouseAction="LeftClick" Command="{Binding CopyHexadecimalCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}"/>
+			</TextBlock.InputBindings>
+		</TextBlock>
+		<TextBlock Name="TextBlockRed" Margin="10,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Red" VerticalAlignment="Center" Cursor="Hand">
+			<TextBlock.InputBindings>
+				<MouseBinding MouseAction="LeftClick" Command="{Binding CopyRedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding ElementName=TextBlockRed, Path=Text}"/>
+			</TextBlock.InputBindings>
+		</TextBlock>
+		<TextBlock Name="TextBlockGreen" Margin="10,0,0,0" TextWrapping="Wrap" Text="255" Foreground="Green" VerticalAlignment="Center" Cursor="Hand">
+			<TextBlock.InputBindings>
+				<MouseBinding MouseAction="LeftClick" Command="{Binding CopyGreenCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding ElementName=TextBlockGreen, Path=Text}"/>
+			</TextBlock.InputBindings>
+		</TextBlock>
+		<TextBlock Name="TextBlockBlue" Margin="10,0,0,0" TextWrapping="Wrap" Text="255" Foreground="CornflowerBlue" VerticalAlignment="Center" Cursor="Hand">
+			<TextBlock.InputBindings>
+				<MouseBinding MouseAction="LeftClick" Command="{Binding CopyBlueCommand, RelativeSource={RelativeSource FindAncestor, AncestorType=UserControl}}" CommandParameter="{Binding ElementName=TextBlockBlue, Path=Text}"/>
+			</TextBlock.InputBindings>
+		</TextBlock>
+	</StackPanel>
+</UserControl>
